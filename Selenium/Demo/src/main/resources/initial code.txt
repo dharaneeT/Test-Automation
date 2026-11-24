@@ -1,0 +1,261 @@
+	//		WebDriver driver = new ChromeDriver();
+		//		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		//		driver.manage().window().maximize();
+		//
+		//		WebElement username = driver.findElement(By.name("username"));
+		//		username.sendKeys("Admin");
+		//		//Refactor
+		//		driver.findElement(By.name("password")).sendKeys("admin123");
+		//		driver.findElement(By.className("orangehrm-login-button")).submit();
+		//		Thread.sleep(20000);
+		//		System.out.println("Current URL: " + driver.getCurrentUrl());
+		//
+		//		driver.quit();
+		/// ////////////////////////////
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://eaapp.somee.com/");
+		driver.manage().window().maximize();
+		WebElement lnBtn = driver.findElement(By.linkText("Login"));
+		lnBtn.click();
+
+		WebElement username = driver.findElement(By.name("UserName"));
+		username.sendKeys("Admin");
+		//Refactor
+		driver.findElement(By.name("Password")).sendKeys("password");
+		driver.findElement(By.className("btn-signin")).submit();
+		Thread.sleep(5000);
+		System.out.println("Current URL: " + driver.getCurrentUrl());
+    	driver.quit();
+
+
+ //////////////////////////////////////////////////////////////
+ report
+ //
+ //package tests;
+ //
+ //import com.aventstack.extentreports.ExtentReports;
+ //import com.aventstack.extentreports.ExtentTest;
+ //import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+ //import java.io.File;
+ //import java.nio.file.Files;
+ //import java.nio.file.Paths;
+ //import org.openqa.selenium.By;
+ //import org.openqa.selenium.OutputType;
+ //import org.openqa.selenium.TakesScreenshot;
+ //import org.openqa.selenium.WebDriver;
+ //import org.openqa.selenium.WebElement;
+ //import org.openqa.selenium.chrome.ChromeDriver;
+ //import org.openqa.selenium.support.ui.Select;
+ //
+ //public class EmployeeTest {
+ //
+ //	static ExtentReports extent;
+ //	static ExtentTest test;
+ //
+ //	public static void main(String[] args) throws InterruptedException {
+ //		// Initialize Extent Report
+ //		ExtentSparkReporter spark = new ExtentSparkReporter("target/EmployeeReport.html");
+ //
+ //		extent = new ExtentReports();
+ //		extent.attachReporter(spark);
+ //
+ //		extent.setSystemInfo("Browser", "Chrome");
+ //		extent.setSystemInfo("Language", "Java");
+ //		extent.setSystemInfo("Automation Tool", "Selenium");
+ //		extent.setSystemInfo("Application", "EA Employee App");
+ //
+ //		test = extent.createTest("Employee Creation Test");
+ //
+ //		WebDriver driver = null;
+ //
+ //		try {
+ //			// Launch browser
+ //			driver = new ChromeDriver();
+ //			driver.manage().window().maximize();
+ //
+ //			test.info("Browser launched successfully");
+ //
+ //			// Open application
+ //			driver.get("https://eaapp.somee.com/");
+ //
+ //			test.pass("Application opened successfully");
+ //
+ //			// Login
+ //			login(driver);
+ //
+ //			// Create employee
+ //			createEmployee(driver);
+ //
+ //			// Wait for confirmation
+ //			Thread.sleep(2000);
+ //
+ //			// Logout
+ //			logout(driver);
+ //
+ //			test.pass("Employee test completed successfully");
+ //		} catch (Exception e) {
+ //			test.fail("Test failed: " + e.getMessage());
+ //			test.fail(e);
+ //
+ //			// Capture screenshot on failure
+ //			if (driver != null) {
+ //				String screenshotPath = captureScreenshot(driver);
+ //
+ //				if (screenshotPath != null) {
+ //					test.addScreenCaptureFromPath(screenshotPath);
+ //				}
+ //			}
+ //
+ //			e.printStackTrace();
+ //		} finally {
+ //			// Close browser
+ //			if (driver != null) {
+ //				driver.quit();
+ //			}
+ //
+ //			// Generate report
+ //			extent.flush();
+ //			System.out.println("Extent Report Generated");
+ //			System.out.println("Path: target/EmployeeReport.html");
+ //		}
+ //	}
+ //
+ //	// LOGIN
+ //	public static void login(WebDriver driver) {
+ //		driver.findElement(By.linkText("Login")).click();
+ //
+ //		test.info("Clicked Login");
+ //
+ //		driver.findElement(By.name("UserName")).sendKeys("admin");
+ //
+ //		driver.findElement(By.name("Password")).sendKeys("password");
+ //
+ //		test.info("Entered username and password");
+ //
+ //		driver.findElement(By.xpath("//button[text()='Sign In']")).submit();
+ //
+ //		test.pass("Login submitted successfully");
+ //	}
+ //
+ //	// CREATE EMPLOYEE
+ //	public static void createEmployee(WebDriver driver) throws InterruptedException {
+ //		driver.findElement(By.linkText("👥 Employees")).click();
+ //
+ //		test.pass("Navigated to Employees page");
+ //
+ //		driver.findElement(By.linkText("+ New Employee")).click();
+ //
+ //		test.pass("Opened New Employee form");
+ //
+ //		// Name
+ //		driver.findElement(By.id("Name")).sendKeys("DharaneeTs");
+ //
+ //		test.info("Entered employee name");
+ //
+ //		// Age
+ //		driver.findElement(By.id("Age")).sendKeys("22");
+ //
+ //		test.info("Entered employee age");
+ //
+ //		// Salary
+ //		driver.findElement(By.id("Salary")).sendKeys("100000");
+ //
+ //		test.info("Entered employee salary");
+ //
+ //		// Duration
+ //		driver.findElement(By.id("DurationWorked")).sendKeys("24");
+ //
+ //		test.info("Entered duration worked");
+ //
+ //		// Grade
+ //		Select dropdown = new Select(driver.findElement(By.id("Grade")));
+ //
+ //		dropdown.selectByIndex(2);
+ //
+ //		test.info("Selected employee grade");
+ //
+ //		// Email
+ //		WebElement email = driver.findElement(By.id("Email"));
+ //
+ //		email.sendKeys("sdharaneet@gmail.com");
+ //
+ //		test.info("Entered employee email");
+ //
+ //		Thread.sleep(2000);
+ //
+ //		// Create button
+ //		driver.findElement(By.xpath("//button[text()=\"✓ Create Employee\"]")).submit();
+ //
+ //		test.pass("Create Employee form submitted");
+ //	}
+ //
+ //	// LOGOUT
+ //	public static void logout(WebDriver driver) {
+ //		driver.findElement(By.xpath("//button[text()=\"Logout\"]")).click();
+ //
+ //		test.pass("Logged out successfully");
+ //	}
+ //
+ //	// SCREENSHOT
+ //	public static String captureScreenshot(WebDriver driver) {
+ //		try {
+ //			Files.createDirectories(Paths.get("target/screenshots"));
+ //
+ //			String path = "target/screenshots/EmployeeFailure.png";
+ //
+ //			File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+ //
+ //			Files.copy(screenshot.toPath(), Paths.get(path), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+ //
+ //			return new File(path).getAbsolutePath();
+ //		} catch (Exception e) {
+ //			System.out.println("Screenshot error: " + e.getMessage());
+ //
+ //			return null;
+ //		}
+ //	}
+ //}
+/////////////////////
+package Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class EmployeeListPage {
+
+	private WebDriver driver;
+
+	public EmployeeListPage(WebDriver driver) {
+		this.driver = driver;
+	}
+
+
+	private By newEmpLnk = By.linkText("+ New Employee");
+	private By nameField = By.name("searchTerm");
+	private By emailField = By.name("emailTerm");
+	private By searchBtn = By.xpath("//button[text()='Search']");
+	private By clearLnk = By.linkText("✕ Clear");
+	private By gradeFilter = By.name("gradeFilter");
+
+	public CreateEmpPage createEmp() {
+		driver.findElement(newEmpLnk).click();
+		return new CreateEmpPage(driver);
+	}
+
+	public void findEmp(String name, String mail, int gradeindex) throws InterruptedException {
+		driver.findElement(nameField).sendKeys(name);
+		driver.findElement(emailField).sendKeys(mail);
+
+		Select gradeSelect = new Select(driver.findElement(gradeFilter));
+		gradeSelect.selectByIndex(gradeindex);
+
+		driver.findElement(searchBtn).click();
+
+		Thread.sleep(5000);
+	}
+
+	public void clearList() {
+		driver.findElement(clearLnk).click();
+	}
+}

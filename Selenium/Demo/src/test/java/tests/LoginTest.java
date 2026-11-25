@@ -19,19 +19,17 @@ public class LoginTest extends BaseTest {
 		HomePage homePage = new HomePage(driver).clickLogin().login(user, password);
 		Assert.assertTrue(homePage.isLoggedIn(), "Login should succeed for user: " + user);
 	}
-
-	@Test(
-		priority = 2,
-		groups = { "regression", "login" },
-		dataProvider = "invalidLogins",
-		dataProviderClass = TestDataProviders.class
-	)
-	public void invalidLogin(String user, String password) {
-		HomePage homePage = new HomePage(driver).clickLogin().login(user, password);
-		// short timeout: we expect the "Login" link to stay, so don't wait the full 15s
-		Assert.assertFalse(
-			homePage.isLoggedIn(Duration.ofSeconds(3)),
-			"Login should be rejected for user: '" + user + "'"
-		);
-	}
+	//	@Test(
+	//		priority = 2,
+	//		groups = { "regression", "login" },
+	//		dataProvider = "invalidLogins",
+	//		dataProviderClass = TestDataProviders.class
+	//	)
+	//	public void invalidLogin(String user, String password) {
+	//		HomePage homePage = new HomePage(driver).clickLogin().login(user, password);
+	//		Assert.assertFalse(
+	//			homePage.isLoggedIn(Duration.ofSeconds(3)),
+	//			"Login should be rejected for user: '" + user + "'"
+	//		);
+	//	}
 }

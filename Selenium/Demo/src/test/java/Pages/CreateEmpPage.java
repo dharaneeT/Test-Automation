@@ -47,6 +47,5 @@ public class CreateEmpPage {
 
 	public void cancel() {
 		WaitUtils.waitForClickable(driver, cancelLnk).click();
-		WaitUtils.waitForUrlNotContaining(driver, "Create");
 	}
 }

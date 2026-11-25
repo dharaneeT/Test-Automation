@@ -21,9 +21,7 @@ public class LoginPage {
 	private By siginBtn = By.xpath("//button[text()=\"Sign In\"]");
 
 	public HomePage login(String name, String password) {
-		// explicit wait: the login form must be visible before typing
 		WaitUtils.waitForVisible(driver, userNameField).sendKeys(name);
-		// implicit wait covers these lookups
 		driver.findElement(passwordField).sendKeys(password);
 		WaitUtils.waitForClickable(driver, siginBtn).submit();
 		return new HomePage(driver);

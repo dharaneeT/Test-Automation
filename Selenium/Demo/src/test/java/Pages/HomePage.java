@@ -1,10 +1,11 @@
 package Pages;
 
-import org.openqa.selenium.By;
+import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import tests.utils.WaitUtils;
 
 public class HomePage {
 
@@ -37,27 +38,35 @@ public class HomePage {
 	private WebElement logo;
 
 	public LoginPage clickLogin() {
-		loginlnk.click();
+		WaitUtils.waitForClickable(driver, loginlnk).click();
 		return new LoginPage(driver);
 	}
 
 	public RegisterPage clickRegister() {
-		registerlnk.click();
+		WaitUtils.waitForClickable(driver, registerlnk).click();
 		return new RegisterPage(driver);
 	}
 
 	public DashboardPage clickDashboard() {
-		dashboarlnk.click();
+		WaitUtils.waitForClickable(driver, dashboarlnk).click();
 		return new DashboardPage(driver);
 	}
 
 	public AboutPage clickAbout() {
-		aboutlnk.click();
+		WaitUtils.waitForClickable(driver, aboutlnk).click();
 		return new AboutPage(driver);
 	}
 
 	public EmployeeListPage clickEmployeeList() {
-		employeelnk.click();
+		WaitUtils.waitForClickable(driver, employeelnk).click();
 		return new EmployeeListPage(driver);
+	}
+
+	public boolean isLoggedIn() {
+		return isLoggedIn(WaitUtils.EXPLICIT_WAIT);
+	}
+
+	public boolean isLoggedIn(Duration timeout) {
+		return WaitUtils.isGone(driver, loginlnk, timeout);
 	}
 }

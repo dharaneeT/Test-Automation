@@ -2,6 +2,7 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import tests.utils.WaitUtils;
 
 public class LoginPage {
 
@@ -20,9 +21,11 @@ public class LoginPage {
 	private By siginBtn = By.xpath("//button[text()=\"Sign In\"]");
 
 	public HomePage login(String name, String password) {
-		driver.findElement(userNameField).sendKeys(name);
+		// explicit wait: the login form must be visible before typing
+		WaitUtils.waitForVisible(driver, userNameField).sendKeys(name);
+		// implicit wait covers these lookups
 		driver.findElement(passwordField).sendKeys(password);
-		driver.findElement(siginBtn).submit();
+		WaitUtils.waitForClickable(driver, siginBtn).submit();
 		return new HomePage(driver);
 	}
 

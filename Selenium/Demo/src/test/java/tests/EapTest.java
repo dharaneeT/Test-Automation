@@ -3,41 +3,64 @@ package tests;
 import Pages.CreateEmpPage;
 import Pages.EmployeeListPage;
 import Pages.HomePage;
-import Pages.LoginPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import tests.base.BaseTest;
+import tests.utils.TestDataProviders;
 
-public class EapTest {
+public class EapTest extends BaseTest {
 
-	private WebDriver driver;
 	private HomePage homePage;
-	private LoginPage loginPage;
-	private EmployeeListPage employeeListPage;
-	private CreateEmpPage createEmpPage;
 
-	@BeforeTest
-	public void RunBeforeTest() {
-		driver = new ChromeDriver();
-		driver.navigate().to("https://eaapp.somee.com/");
+	@BeforeMethod(alwaysRun = true)
+	public void loginAsAdmin() {
 		homePage = new HomePage(driver);
-		loginPage = homePage.clickLogin();
-		loginPage.login("admin", "password");
+		homePage.clickLogin().login("admin", "password");
+		Assert.assertTrue(homePage.isLoggedIn(), "Pre-condition failed: admin could not log in");
 	}
 
-	@Test
-	public void createEmployee() throws InterruptedException {
-		employeeListPage = homePage.clickEmployeeList();
-		createEmpPage = employeeListPage.createEmp();
-		createEmpPage.createEmployee("joth", "22", "100000", "24", "joth@email.com", 3);
-		Thread.sleep(5000);
+	@Test(
+		priority = 1,
+		groups = { "smoke", "employee" },
+		dataProvider = "newEmployees",
+		dataProviderClass = TestDataProviders.class
+	)
+	public void createEmployee(
+		String name,
+		String age,
+		String salary,
+		String durationWorked,
+		String email,
+		int gradeIndex
+	) {
+		EmployeeListPage listPage = homePage.clickEmployeeList();
+		CreateEmpPage createPage = listPage.createEmp();
+		listPage = createPage.createEmployee(name, age, salary, durationWorked, email, gradeIndex);
+
+		listPage.searchByName(name);
+		Assert.assertTrue(listPage.isEmployeeListed(name), "Employee should be listed: " + name);
 	}
 
-	@AfterTest
-	public void AfterTest() {
-		System.out.println("Browser is quitting");
-		driver.quit();
+	@Test(
+		priority = 2,
+		groups = { "regression", "employee" },
+		dataProvider = "unknownEmployees",
+		dataProviderClass = TestDataProviders.class
+	)
+	public void searchUnknownEmployee(String unknownName) {
+		EmployeeListPage listPage = homePage.clickEmployeeList();
+		listPage.searchByName(unknownName);
+		Assert.assertFalse(
+			listPage.isEmployeeListed(unknownName),
+			"Unknown employee should not be listed: " + unknownName
+		);
+	}
+
+	@Test(priority = 3, groups = { "regression", "employee" })
+	public void cancelCreateEmployee() {
+		CreateEmpPage createPage = homePage.clickEmployeeList().createEmp();
+		createPage.cancel();
+		Assert.assertFalse(driver.getCurrentUrl().contains("Create"), "Cancel should leave the Create page");
 	}
 }

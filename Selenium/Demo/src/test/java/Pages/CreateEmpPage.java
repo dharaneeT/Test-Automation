@@ -2,8 +2,8 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import tests.utils.WaitUtils;
 
 public class CreateEmpPage {
 
@@ -12,7 +12,6 @@ public class CreateEmpPage {
 	public CreateEmpPage(WebDriver driver) {
 		this.driver = driver;
 	}
-
 
 	private By nameField = By.name("Name");
 	private By ageField = By.name("Age");
@@ -32,18 +31,22 @@ public class CreateEmpPage {
 		String email,
 		int gradeindex
 	) {
-		driver.findElement(nameField).sendKeys(name);
+		WaitUtils.waitForVisible(driver, nameField).sendKeys(name);
 		driver.findElement(ageField).sendKeys(age);
 		driver.findElement(salaryField).sendKeys(salary);
 		driver.findElement(durationWorkedField).sendKeys(durationWorked);
 		Select gradeSelect = new Select(driver.findElement(gradeselectelement));
 		gradeSelect.selectByIndex(gradeindex);
 		driver.findElement(mailField).sendKeys(email);
-		driver.findElement(createBtn).submit();
+
+		WaitUtils.waitForClickable(driver, createBtn).submit();
+
+		WaitUtils.waitForUrlNotContaining(driver, "Create");
 		return new EmployeeListPage(driver);
 	}
 
 	public void cancel() {
-		driver.findElement(cancelLnk).click();
+		WaitUtils.waitForClickable(driver, cancelLnk).click();
+		WaitUtils.waitForUrlNotContaining(driver, "Create");
 	}
 }

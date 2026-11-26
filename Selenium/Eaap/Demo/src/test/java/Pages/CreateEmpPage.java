@@ -20,7 +20,7 @@ public class CreateEmpPage {
 	private By mailField = By.name("Email");
 	private By backToListLnk = By.linkText("← Back to List");
 	private By createBtn = By.xpath("//button[text()=\"✓ Create Employee\"]");
-	private By cancelLnk = By.linkText("✕ Cancel");
+	private By cancelLnk = By.xpath("//a[contains(text(), '✕ Cancel')]");
 	private By gradeselectelement = By.name("Grade");
 
 	public EmployeeListPage createEmployee(

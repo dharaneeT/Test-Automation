@@ -55,7 +55,6 @@ public final class WaitUtils {
 		until(driver, ExpectedConditions.stalenessOf(element), EXPLICIT_WAIT);
 	}
 
-
 	public static boolean isPresent(WebDriver driver, By locator, Duration timeout) {
 		try {
 			until(driver, ExpectedConditions.presenceOfElementLocated(locator), timeout);
@@ -64,7 +63,6 @@ public final class WaitUtils {
 			return false;
 		}
 	}
-
 
 	public static boolean isGone(WebDriver driver, WebElement element, Duration timeout) {
 		try {

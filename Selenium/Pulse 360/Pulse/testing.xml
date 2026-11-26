@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="EAAP Suite" verbose="1">
+
+
+    <parameter name="browser" value="chrome"/>
+
+    <test name="Smoke">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+<!--            <class name="tests.LoginTest"/>-->
+<!--            <class name="tests.EapTest"/>-->
+        </classes>
+    </test>
+
+    <test name="Regression">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+<!--            <class name="tests.LoginTest"/>-->
+<!--            <class name="tests.EapTest"/>-->
+        </classes>
+    </test>
+
+    <!-- Cross-browser example: a test-level parameter overrides the suite-level one
+    <test name="Smoke on Firefox">
+        <parameter name="browser" value="firefox"/>
+        <groups><run><include name="smoke"/></run></groups>
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+    -->
+</suite>

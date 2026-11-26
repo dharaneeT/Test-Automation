@@ -11,13 +11,11 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import tests.utils.WaitUtils;
 
-
 public class BaseTest {
 
 	protected static final String BASE_URL = "https://eaapp.somee.com/";
 
 	protected WebDriver driver;
-
 
 	@Parameters({ "browser" })
 	@BeforeMethod(alwaysRun = true)

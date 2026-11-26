@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="87c2de62-5ef7-4b6e-b60a-8eebf6d31b9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basics/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/regression.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/smoke.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/main/java/org/example/Support.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/main/resources/initial code.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/Pages/AboutPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/Pages/CreateEmpPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/Pages/DashboardPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/Pages/EmployeeListPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/Pages/ForgotPasswordPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/Pages/HomePage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/Pages/LoginPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/Pages/RegisterPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/tests/EapTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/tests/EmployeeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/tests/LoginTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/tests/base/BaseTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/tests/utils/TestDataProviders.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/src/test/java/tests/utils/WaitUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/testng.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "dharaneeT"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/dharaneeT/Test-Automation.git",
+    "accountId": "7b8e5888-61a6-4752-aac9-21441b628c29"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="3MdC9jAUIIr2DrUlLF9QU3VVHj1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="87c2de62-5ef7-4b6e-b60a-8eebf6d31b9f" name="Changes" comment="" />
+      <created>1795670914758</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1795670914758</updated>
+    </task>
+    <servers />
+  </component>
+</project>

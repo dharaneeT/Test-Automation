@@ -56,10 +56,11 @@ public class EapTest extends BaseTest {
 			"Unknown employee should not be listed: " + unknownName
 		);
 	}
-	//	@Test(priority = 3, groups = { "regression", "employee" })
-	//	public void cancelCreateEmployee() {
-	//		CreateEmpPage createPage = homePage.clickEmployeeList().createEmp();
-	//		createPage.cancel();
-	//		//		Assert.assertFalse(driver.getCurrentUrl().contains("Create"), "Cancel should leave the Create page");
-	//	}
+
+	@Test(priority = 3, groups = { "regression", "employee" })
+	public void cancelCreateEmployee() {
+		CreateEmpPage createPage = homePage.clickEmployeeList().createEmp();
+		createPage.cancel();
+		//		Assert.assertFalse(driver.getCurrentUrl().contains("Create"), "Cancel should leave the Create page");
+	}
 }

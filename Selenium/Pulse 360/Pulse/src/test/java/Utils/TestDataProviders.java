@@ -10,7 +10,7 @@ public class TestDataProviders {
 	}
 	//	@DataProvider(name = "validPassword")
 	//	public static Object[][] invalidLogins() {
-	//		return new Object[][] { { "Diaz@2618" } };
+	//		return ew Object[][] { { "Diaz@2618" } };
 	//	}
 	//	@DataProvider(name = "newEmployees")
 	//	public static Object[][] newEmployees() {

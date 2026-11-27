@@ -1,5 +1,5 @@
 {
-  "name": "playwright",
+  "name": "orangehrm",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,6 @@
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.65.1",
-    "@types/node": "^26.6.6"
+    "@types/node": "^26.6.11"
   }
 }
